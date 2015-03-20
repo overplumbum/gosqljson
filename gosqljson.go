@@ -11,7 +11,7 @@ import (
 func QueryDbToArrayJson(db *sql.DB, theCase string, sqlStatement string, sqlParams ...interface{}) (string, error) {
 	data, err := QueryDbToArray(db, theCase, sqlStatement, sqlParams...)
 	if err != nil {
-		return nil, err
+		return "", err
 	}
 	jsonString, err := json.Marshal(data)
 	return string(jsonString), err
@@ -20,7 +20,7 @@ func QueryDbToArrayJson(db *sql.DB, theCase string, sqlStatement string, sqlPara
 func QueryDbToMapJson(db *sql.DB, theCase string, sqlStatement string, sqlParams ...interface{}) (string, error) {
 	data, err := QueryDbToMap(db, theCase, sqlStatement, sqlParams...)
 	if err != nil {
-		return nil, err
+		return "", err
 	}
 	jsonString, err := json.Marshal(data)
 	return string(jsonString), err
